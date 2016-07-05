@@ -4,7 +4,8 @@
   "description": "survey creator",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/wjin0352/node-survey-creator/issues"
   },
-  "homepage": "https://github.com/wjin0352/node-survey-creator#readme"
+  "homepage": "https://github.com/wjin0352/node-survey-creator#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.1.18"
+  }
 }
