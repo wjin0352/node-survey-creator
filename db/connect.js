@@ -1,4 +1,34 @@
+// contains logic for connecting to the database. You will require this anywhere that you need to connect to the database:
+
 // Once Mongo is installed, we can connect to MongoDB through the Mongo.Client‘s connect method
+
+var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/');
+var env = require('../environment');
+var config = require('./config');
+
+mongoose.connect(config[env].url);
+
+
+
+mongoose.connection.on('error', function(err) {
+  console.error('Could not connect, Error:', err );
+});
+
+mongoose.connection.once('open', function() {
+  var survey = mongoose.Schema({
+    title: {type: String, unique: true},
+    questions: [],
+    answer: [],
+  });
+
+  var Survey = mongoose.model('Survey', survey);
+
+  module.exports = Survey;
+});
+
+
+
 
 var MongoClient = require('mongodb').MongoClient;
 

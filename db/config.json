@@ -1,0 +1,12 @@
+// maps application environment to the mongo database
+{
+  "production": {
+    "url": "mongodb://localhost/capstone_node"
+  },
+  "test": {
+    "url": "mongodb://localhost/capstone_node_test"
+  },
+  "development": {
+    "url": "mongodb://localhost/capstone_node_dev"
+  }
+}
