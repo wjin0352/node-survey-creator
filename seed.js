@@ -1,4 +1,4 @@
-var Survey = require('../db/mongoose');
+var Survey = require('../models/surveys');
 
 exports.save = function(name) {
   return new Promise(function(resolve, reject) {

@@ -1,4 +1,3 @@
-// maps application environment to the mongo database
 {
   "production": {
     "url": "mongodb://localhost/capstone_node"
