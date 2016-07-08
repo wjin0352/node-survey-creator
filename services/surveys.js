@@ -6,7 +6,7 @@ exports.save = function(name) {
       if(err) {
         reject(err);
       } else {
-      resolve(survey);
+        resolve(survey);
       }
     });
   });
@@ -37,9 +37,9 @@ exports.update = function() {
   });
 };
 
-exports.remove = function(id) {
+exports.remove = function() {
   return new Promise(function(resolve, reject) {
-    Survey.findByIdAndRemove(id, function(err, survey) {
+    Survey.findByAndRemove(id, function(err, survey) {
       if(err) {
         reject(err);
       } else {
@@ -48,3 +48,6 @@ exports.remove = function(id) {
     });
   });
 };
+
+
+
