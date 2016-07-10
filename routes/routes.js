@@ -27,6 +27,7 @@ var router = express.Router();
 router.get('/surveys', function(req, res) {
   Survey.list()
     .then(function(survey) {
+      // console.log(survey[0].questions[0].answers);
       res.json(survey);
     })
     .catch(function(err) {
@@ -50,19 +51,20 @@ router.post('/surveys/:id/answers', function(req, res) {
       res.json(ans);
     })
     .catch(function(err) {
+      console.log(req.body, err);
       res.status(400).json(err);
     });
 })
 
-router.put('/surveys/:id', function(req, res) {
-  Survey.update(req.params.id, req.body.answers)
-    .then(function(survey) {
-      res.status(200).json(survey);
-    })
-    .catch(function(err) {
-      res.status(400).json(err);
-    });
-});
+// router.put('/surveys/:id', function(req, res) {
+//   Survey.update(req.params.id, req.body.answers)
+//     .then(function(survey) {
+//       res.status(200).json(survey);
+//     })
+//     .catch(function(err) {
+//       res.status(400).json(err);
+//     });
+// });
 
 router.delete('/surveys/:id', function(req, res) {
   Survey.remove(req.params.id)
@@ -70,6 +72,7 @@ router.delete('/surveys/:id', function(req, res) {
       res.status(200).json(survey);
     })
     .catch(function(err) {
+      console.log(req.params, err);
       res.status(400).json(err);
     });
 });

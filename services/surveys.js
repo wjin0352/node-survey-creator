@@ -38,9 +38,9 @@ exports.list = function() {
 //   });
 // };
 
-exports.remove = function() {
+exports.remove = function(id) {
   return new Promise(function(resolve, reject) {
-    Survey.findByAndRemove(id, function(err, survey) {
+    Survey.findByIdAndRemove(id, function(err, survey) {
       if(err) {
         reject(err);
       } else {
