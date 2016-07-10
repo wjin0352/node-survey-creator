@@ -1,2 +1,2 @@
-./mongo_data
-./run_mongod
+mongo_data
+run_mongod

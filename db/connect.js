@@ -2,9 +2,7 @@
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/');
 var env = require('../environment');
-var config = require('./config');
 
-mongoose.connect(config[env].url);
 
 // mongoose.connection.on('error', function(err) {
 //   console.error('Could not connect, Error:', err );
@@ -23,9 +21,7 @@ mongoose.connect(config[env].url);
 // });
 
 
-// Once Mongo is installed, we can connect to MongoDB through the Mongo.Client‘s connect method
-
-var MongoClient = require('mongodb').MongoClient;
+// var MongoClient = require('mongodb').MongoClient;
 
 // MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds015335.mlab.com:15335/node-survey-creator', (err, database) => {
 //     if(err) return console.log(err);
@@ -34,10 +30,11 @@ var MongoClient = require('mongodb').MongoClient;
 //       console.log('Listening on 3000')
 //     })
 //   });
+var mongo_uri = process.env.MONGO_URI || 'mongodb://localhost/survey_app'
 
 module.exports = function() {
   return new Promise(function(resolve, reject) {
-    MongoClient.connect('mongodb://localhost/', function(err, db) {
+    mongoose.connect(mongo_uri, function(err, db) {
       if (err) {
         console.error(err);
         db.close();

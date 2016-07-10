@@ -1,8 +1,8 @@
 var Survey = require('../models/surveys');
 
-exports.save = function(name) {
+exports.save = function(name, questions) {
   return new Promise(function(resolve, reject) {
-    Survey.create({ name: name}, function(err, survey) {
+    Survey.create({ name: name, questions: questions}, function(err, survey) {
       if(err) {
         reject(err);
       } else {
@@ -24,18 +24,19 @@ exports.list = function() {
   });
 };
 
-exports.update = function() {
-  return new Promise(function(resolve, reject) {
-    Survey.findOneAndUpdate({_id: id}, {name: surveyName},
-      function(err, survey) {
-        if(err) {
-          reject(err);
-        } else {
-          resolve(survey);
-        }
-      });
-  });
-};
+
+// exports.update = function(id, questions) {
+//   return new Promise(function(resolve, reject) {
+//     Survey.findOneAndUpdate({_id: id}, {answers: answers}, {new: true},
+//       function(err, survey) {
+//         if(err) {
+//           reject(err);
+//         } else {
+//           resolve(survey);
+//         }
+//       });
+//   });
+// };
 
 exports.remove = function() {
   return new Promise(function(resolve, reject) {
