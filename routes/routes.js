@@ -3,7 +3,7 @@ var Survey = require('../services/surveys');
 var Answer = require('../services/answers')
 var router = express.Router();
 
-// callback patter
+// callback pattern
 // router.get('/surveys', function(req, res) {
 //   Survey.list(function(err, survey) {
 //     if(err) {

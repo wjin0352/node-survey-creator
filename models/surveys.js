@@ -7,8 +7,14 @@ var QuestionsSchema = new mongoose.Schema({
 
 var SurveySchema = new mongoose.Schema({
   name: { type: String, required: true },
-  questions: [QuestionsSchema]
+  questions: [QuestionsSchema],
+  creator_id: String
 });
+
+  // SurveySchema.methods.someMethod = function() {
+
+  // };
+
 
 var Survey = mongoose.model('Survey', SurveySchema);
 
