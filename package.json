@@ -23,5 +23,9 @@
     "mongo": "^0.1.0",
     "mongodb": "^2.1.18",
     "mongoose": "^4.5.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
   }
 }

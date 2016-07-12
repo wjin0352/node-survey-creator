@@ -30,7 +30,7 @@ var env = require('../environment');
 //       console.log('Listening on 3000')
 //     })
 //   });
-var mongo_uri = process.env.MONGO_URI || 'mongodb://localhost/survey_app'
+var mongo_uri = process.env.NODE_ENV || 'mongodb://localhost/survey_app'
 
 module.exports = function() {
   return new Promise(function(resolve, reject) {
